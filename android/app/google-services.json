@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "995935587210",
+    "project_id": "walabproject",
+    "storage_bucket": "walabproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995935587210:android:5280fa56289d31a0349673",
+        "android_client_info": {
+          "package_name": "com.example.practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995935587210-jqepevk1tqbufpkdv9iksh695bsqrqph.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.practice",
+            "certificate_hash": "65283152ddc91963efe4203648c1c6b01f0a6da3"
+          }
+        },
+        {
+          "client_id": "995935587210-iap7k92nlscs9jqcbuh9bt03akpftg05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbgy7EDxW6SY4NkpPk2FATMX_sbINa1gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995935587210-iap7k92nlscs9jqcbuh9bt03akpftg05.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "995935587210-0pc2cstmtr9bjvgh37mitnu82a62frvg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.practice"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
