@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:practice/bethel/first_f.dart';
+import 'sign_up_to_main.dart';
 import 'package:practice/box_for_use_unuse.dart';
 import 'package:practice/sign_up/sign_up_drop_menu.dart';
+
+import '../utils/colors.dart';
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -12,11 +14,13 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   TextEditingController name = TextEditingController();
   TextEditingController studentID = TextEditingController();
-  late String nameInput;
-  late int studentIDInput;
+  DropDownMenuSignUP menuSignUP = new DropDownMenuSignUP();
+  bool typedIn = false;
 
   @override
   Widget build(BuildContext context) {
+    String nameInput;
+    int studentIDInput;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: buildAppBar(),
@@ -61,36 +65,57 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   buildText('층수'),
                 ]),
-                DropDownMenuSignUP(),
+                menuSignUP,
                 SizedBox(
                   height: 227,
                 ),
-                Row(
-                  children: <Widget> [
-                  ],
-                ),
-                FlatButton(
-                  color: Colors.indigo[300],
-                  onPressed: () {
-
-                      showNullSnackBar(context);
-
-                  },
-                  height: 45,
-                  minWidth: 200,
-                  shape: StadiumBorder(),
-                  child: Text(
-                    '회원가입',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                buildFlatButton(),
               ],
             )
         )
     );
+  }
+
+  FlatButton buildFlatButton() {
+    if(typedIn){
+      return FlatButton(
+        color: blue2,
+        onPressed: () {
+          String nameUser = name.text;
+          String studentIDUser = studentID.text;
+          signUpToMain(nameUser, studentIDUser,menuSignUP.selectedDorm, menuSignUP.selectedFloor, context);
+        },
+        height: 45,
+        minWidth: 200,
+        shape: StadiumBorder(),
+        child: Text(
+          '회원가입',
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Colors.white,
+          ),
+        ),
+      );
+    }
+    else{
+      return FlatButton(
+        color: Colors.white,
+        onPressed: () {},
+        height: 45,
+        minWidth: 200,
+        shape: RoundedRectangleBorder(
+            side: BorderSide(
+                color: blue2, width: 1, style: BorderStyle.solid),
+            borderRadius: BorderRadius.circular(50)),
+        child: Text(
+          '회원가입',
+          style: TextStyle(
+            fontSize: 18.0,
+            color: blue2,
+          ),
+        ),
+      );
+    }
   }
 
   Row buildText(String text) {
@@ -110,27 +135,32 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Container inputContainer(
-      TextEditingController input, String labelText, TextInputType type) {
+  Container inputContainer(TextEditingController input, String labelText, TextInputType type) {
     return Container(
       padding: EdgeInsets.all(10),
-      child: TextField(
-        controller: input,
-        decoration: InputDecoration(
-            border: OutlineInputBorder(), labelText: '$labelText'),
-        keyboardType: type,
+
+      child: Theme(
+        data: ThemeData(
+          primaryColor: Color(0xffB0C4FF),
+          primaryColorDark: Color(0xffB0C4FF),
+        ),
+        child: TextField(
+          onChanged: (value){
+            setState(() {
+              if(name.text.isNotEmpty && studentID.text.isNotEmpty)
+                typedIn = true;
+              else
+                typedIn = false;
+            });
+          },
+          controller: input,
+          decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: '$labelText'),
+          keyboardType: type,
+        ),
       ),
     );
   }
 }
 
-void showNullSnackBar(BuildContext context){
-  Scaffold.of(context).showSnackBar(
-    SnackBar(content:
-      Text('이름과 학번을 입력해주세요.',
-      textAlign: TextAlign.center,),
-    duration: Duration(seconds: 2),
-    backgroundColor: Colors.blue,
-    )
-  );
-}

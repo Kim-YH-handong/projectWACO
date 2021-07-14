@@ -9,7 +9,9 @@ import '../setakki.dart';
 
 
 class BethelFourthFloor extends StatelessWidget {
+  BethelFourthFloor({required this.userName});
 
+  String userName;
   final valueList = ['벧엘관 1층', '벧엘관 2층', '벧엘관 3층', '벧엘관 4층', '벧엘관 5층'];
   var selectedValue = '벧엘관 4층';
 
@@ -29,35 +31,7 @@ class BethelFourthFloor extends StatelessWidget {
           SizedBox(
             height: 10.0,
           ),
-          Row(
-              children: <Widget> [
-                SizedBox(
-                  width: 40.0,
-                ),
-                Text('안녕하세요',
-                  style: TextStyle(
-                    letterSpacing: 2.0,
-                    fontSize: 20.0,
-                  ),
-                ),
-                Text(' 하은',
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text('님',
-                  style: TextStyle(
-                    letterSpacing: 2.0,
-                    fontSize: 20.0,
-                  ),
-                ),
-                SizedBox(
-                  width: 100.0,
-                ),
-                buildDropdownButton(context, '벧엘관 4층'),
-              ]
-          ),
+          buildTopMain(context,userName,'벧엘관 4층'),
           SizedBox(
             height: 100.0,
           ),

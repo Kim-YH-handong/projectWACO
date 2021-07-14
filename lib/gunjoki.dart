@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:practice/bethel/first_f.dart';
 import 'package:practice/box_for_use_unuse.dart';
+import 'package:practice/utils/colors.dart';
 
 class BuildGunjoki extends StatefulWidget {
   int number;
@@ -64,7 +65,7 @@ class _BuildGunjokiState extends State<BuildGunjoki> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.lightBlue[50],
+          color: blue1,
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
       width: 140,
       height: 230,
@@ -126,7 +127,7 @@ class _BuildGunjokiState extends State<BuildGunjoki> {
         '사용가능',
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          color: Colors.grey,
+          color: blue3,
           letterSpacing: 2.0,
           fontSize: 12,
         ),
@@ -151,14 +152,14 @@ class _BuildGunjokiState extends State<BuildGunjoki> {
             )),
         shape: RoundedRectangleBorder(
             side: BorderSide(
-                color: Colors.blue, width: 1, style: BorderStyle.solid),
+                color: blue3, width: 1, style: BorderStyle.solid),
             borderRadius: BorderRadius.circular(50)),
       );
     else
       return FlatButton(
         minWidth: 107,
         height: 28,
-        color: Colors.blueAccent,
+        color: blue3,
         onPressed: () {
           showAlertDialog(context);
         },

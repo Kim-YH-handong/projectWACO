@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dropdownbutton.dart';
+
 
 bool state = false;
 
@@ -33,8 +35,8 @@ AppBar buildAppBar() {
       backgroundColor: Colors.white,
       elevation: 0.0,
       title: Container(
-        width: 100.0,
-        height: 45.0,
+        width: 80.0,
+        height: 40,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/logo1.png'),
@@ -42,6 +44,38 @@ AppBar buildAppBar() {
           ),
         ),
       )
+  );
+}
+
+Row buildTopMain(BuildContext context, String userName, String dorm) {
+  return Row(
+      children: <Widget> [
+        SizedBox(
+          width: 40.0,
+        ),
+        Text('안녕하세요',
+          style: TextStyle(
+            letterSpacing: 2.0,
+            fontSize: 20.0,
+          ),
+        ),
+        Text(userName,
+          style: TextStyle(
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text('님',
+          style: TextStyle(
+            letterSpacing: 2.0,
+            fontSize: 20.0,
+          ),
+        ),
+        SizedBox(
+          width: 100.0,
+        ),
+        buildDropdownButton(context, dorm, userName)
+      ]
   );
 }
 

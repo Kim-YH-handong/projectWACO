@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice/bethel/first_f.dart';
-import 'package:practice/box_for_use_unuse.dart';
+import 'utils/colors.dart';
 
 class BuildSetakki extends StatefulWidget {
   int number;
@@ -64,7 +63,7 @@ class _BuildSetakkiState extends State<BuildSetakki> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.lightBlue[50],
+          color: blue1,
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
       width: 140,
       height: 230,
@@ -126,7 +125,7 @@ class _BuildSetakkiState extends State<BuildSetakki> {
         '사용가능',
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          color: Colors.grey,
+          color: blue3,
           letterSpacing: 2.0,
           fontSize: 12,
         ),
@@ -147,18 +146,18 @@ class _BuildSetakkiState extends State<BuildSetakki> {
               fontSize: 14.0,
               letterSpacing: 2.0,
               fontWeight: FontWeight.bold,
-              color: Colors.blueAccent,
+              color: blue3,
             )),
         shape: RoundedRectangleBorder(
             side: BorderSide(
-                color: Colors.blue, width: 1, style: BorderStyle.solid),
+                color: blue3, width: 1, style: BorderStyle.solid),
             borderRadius: BorderRadius.circular(50)),
       );
     else
       return FlatButton(
         minWidth: 107,
         height: 28,
-        color: Colors.blueAccent,
+        color: blue3,
         onPressed: () {
           showAlertDialog(context);
         },

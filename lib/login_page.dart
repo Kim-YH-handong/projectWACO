@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:practice/sign_up/make_account_page.dart';
 
+import 'utils/colors.dart';
+
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class LoginPage extends StatelessWidget {
         height: 260.0,
       ),
       FlatButton(
-        color: Colors.indigo[300],
+        color: blue2,
         onPressed: () {
           Navigator.push(
             context,
